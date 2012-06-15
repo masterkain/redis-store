@@ -27,13 +27,12 @@ class Redis
 
         options = {
           :host     => uri.host,
-          :port     => uri.port,
+          :port     => uri.port || 6379,
           :password => uri.password
         }
 
         options[:db]        = db.to_i   if db
         options[:namespace] = namespace if namespace
-
         options
       end
     end
